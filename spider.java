@@ -14,13 +14,6 @@ public class spider extends Actor
      */
     public void act() 
     {
-        int x = getX();
-        int y = getY();
-        setLocation (x,y + 1);
         
-        if (getY() ==499)    //untuk spider dapat turun kebawah
-        {
-            setLocation(getX(),0);
-        }
     }    
 }
