@@ -15,7 +15,7 @@ public class bayi extends benda
      */
     public void act() 
     {
-       {
+     
         moveBayi(); //method moveBayi
         objectDisappear(); //method objectDisappear
     }
