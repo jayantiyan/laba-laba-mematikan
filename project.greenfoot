@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu May 17 07:44:48 SGT 2018
+#Fri May 18 16:16:10 SGT 2018
 editor.fx.0.height=739
 target2.width=80
 target8.name=latar
@@ -145,6 +145,6 @@ readme.y=10
 readme.x=10
 target4.height=50
 readme.height=58
-target1.width=80
 class.benda.superclass=greenfoot.Actor
+target1.width=80
 =\=\=\=\=\=\=

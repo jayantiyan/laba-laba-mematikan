@@ -1,74 +1,58 @@
-<<<<<<< HEAD
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class bayi here.
+ * Write a description of class Baby here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class bayi extends benda
+public class Baby extends Actor
 {
     /**
-     * Act - do whatever the bayi wants to do. This method is called whenever
+     * Act - do whatever the Baby wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-     
-        moveBayi(); //method moveBayi
-        objectDisappear(); //method objectDisappear
-    }
-}
+        // Add your action code here.
+        if(Greenfoot.mouseMoved(null)) {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            setLocation(mouse.getX(), mouse.getY());
+        }
+        
+        // Pop
+        if(Greenfoot.mouseClicked(null)) {
+            int x = -getImage().getWidth()/2;
+            int y = getImage().getHeight()/2;
+            Roti Roti = (Roti) getOneObjectAtOffset(x , y, Roti.class);
+            if(Roti != null) {
+            ((Latar) getWorld()).tambahNilai();
+            Greenfoot.playSound("pop.wav");
+            getWorld().removeObject(Roti);
+            return;
+            }
+        }
+       
+        Roti a= (Roti)getOneIntersectingObject(Roti.class);
+        if (a!=null)
+        {
+            ((Latar) getWorld()).tambahNilai();
+            Greenfoot.playSound("pop.wav");
+            getWorld().removeObject(a);
+            return;
+        }     
+        
+        Spider Spider=(Spider)getOneIntersectingObject(Spider.class);
+        if(Spider !=null)
+        {
 
-public void objectDisappear() //method objectDisappear
-{
-    if (canSee(bread.class)) //bila melihat kelas objek bread
-    {
-        eat(bread.class); //eat kelas objek bread
-        ((counter)getWorld().getObjects(counter.class).get(0)).counting(10); // kelas counter ditambah sebanyak 10 poin
-        Greenfoot.playSound("score.wav"); //mainkan sound score.wav
-    }
+            setImage("skull.png");
+            setRotation(0);
+            Greenfoot.playSound("buzz.wav");
+            getWorld().removeObject(Spider);
+            Greenfoot.stop();
+            ((Latar) getWorld()).selesai();
+        }
+       
+    }    
 }
-
-public void moveBayi() //method moveBayi
-{
-    if (Greenfoot.isKeyDown("left")) // //bila arah panah ke kiri ditekan
-    {
-        move(-7); //bergerak ke -7
-    }
-    if (Greenfoot.isKeyDown("right")) //bila arah panah ke kanan ditekan
-    {
-        move(7); //bergerak ke 7
-    }
- }
-}
-=======
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class bayi here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class bayi extends Actor
-{
-    int a=1;//percepatan
-    int v=1;//kecepatan
-    /**
-     * Act - do whatever the bayi wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-     //add your action code here.
-     setLocation(getX()+1,getY() );
-     v+=a;//v=v+a
-     
-     if(Greenfoot.isKeyDown("right")){
-         v=-5;
-    }
-}
-}
->>>>>>> 12c46465580a784905a0c32258745412599af511
